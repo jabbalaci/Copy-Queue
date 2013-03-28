@@ -49,6 +49,7 @@ First, clone this project to the following directory:
 Then create the directory `$HOME/bin` and add these two
 symbolic links:
 
+    cd $HOME/bin
     ln -s $HOME/python/Copy-Queue/cpq_mvq.py cpq
     ln -s $HOME/python/Copy-Queue/cpq_mvq.py mvq
 
