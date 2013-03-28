@@ -10,6 +10,8 @@ A command line "cp" and "mv" that use a queue.
 Warning! I don't take any responsibility for any loss of data.
 Use these scripts at your own risk.
 
+Target operating systems: Unix/Linux. Tested with Python 2.7.
+
 Usage
 -----
 
