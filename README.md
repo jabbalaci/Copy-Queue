@@ -2,7 +2,7 @@ Copy Queue
 ==========
 
 * Author:  Laszlo Szathmary, 2013 (<jabba.laci@gmail.com>)
-* Website: ...
+* Website: <http://ubuntuincident.wordpress.com/2013/03/28/cpq-and-mvq/>
 * GitHub:  <https://github.com/jabbalaci/Copy-Queue>
 
 A command line "cp" and "mv" that use a queue.
