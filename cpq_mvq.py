@@ -3,7 +3,7 @@
 """
 copy queue (cpq), move queue (mvq)
 
-This is an extension of the Unix cp and mv commands. These sommands
+This is an extension of the Unix cp and mv commands. These commands
 (cpq and mvq) put tasks in a queue, thus you have the following
 advantages:
 1) When you launch one of these commands, you get the prompt back

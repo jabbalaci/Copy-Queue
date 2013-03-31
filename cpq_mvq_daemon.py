@@ -36,11 +36,12 @@ def process():
     first = sorted(batches)[0]
     fpath = "{qdir}/{fname}".format(qdir=cfg.QDIR, fname=first)
 
+    sleep(0.05)    # problem arises if the client started to write the file but hasn't finished yet
+
     info('start: process {fname}:'.format(fname=first))
     with open(fpath) as f:
         for line in f:
             info("    " + line.rstrip("\n"))
-    # sleep(10)    # used for tests
     os.system(fpath)
     info('end: process {fname}'.format(fname=first))
 
