@@ -44,8 +44,12 @@ Example:
     cpq cd2.avi /mnt/usb/movies/
 """
 
+from __future__ import (absolute_import, division,
+                        print_function, unicode_literals)
+
 import os
 import sys
+
 import config as cfg
 
 CPQ = 'cp'
@@ -56,14 +60,15 @@ THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def check_dir(dirname):
     if not os.path.isdir(dirname):
-        print "Error: {d} is not a directory or doesn't exist.".format(d=cfg.QDIR)
+        print("Error: {d} is not a directory or doesn't exist."
+              .format(d=cfg.QDIR))
         sys.exit(1)
 
 
 def check_daemon():
     if not os.path.isfile(cfg.DAEMON):
-        print "Error: the daemon script is not found."
-        print "It should be here: {path}".format(path=cfg.DAEMON)
+        print("Error: the daemon script is not found.")
+        print("It should be here: {path}".format(path=cfg.DAEMON))
         sys.exit(1)
 
 
@@ -76,27 +81,28 @@ def check_scriptname(s):
     elif fname == 'mvq':
         COMMAND = MVQ
     else:
-        print "Error: the script cpq_mvq.py cannot be called directly."
-        print "You should put two links on it called 'cpq' and 'mvq'."
+        print("Error: the script cpq_mvq.py cannot be called directly.")
+        print("You should put two links on it called 'cpq' and 'mvq'.")
         sys.exit(1)
 
 
 def check_params(params):
     if len(params) == 0:
-        print "Error: you didn't specify any parameters."
+        print("Error: you didn't specify any parameters.")
         sys.exit(1)
 
 
 def get_next_id():
     li = os.listdir(cfg.QDIR)
-    li = [int(t) for t in li if len(t)==4 and t.isdigit()]
+    li = [int(t) for t in li if len(t) == 4 and t.isdigit()]
     if not li:
         return '0001'
     else:
         next_id = str(max(li)+1).zfill(4)
         if int(next_id) > 9999:
-            print "Error: there are too many tasks in {qdir}.".format(qdir=cfg.QDIR)
-            print "Tip: do some cleaning in that directory."
+            print("Error: there are too many tasks in {qdir}."
+                  .format(qdir=cfg.QDIR))
+            print("Tip: do some cleaning in that directory.")
             sys.exit(1)
         # else
         return next_id
@@ -132,7 +138,7 @@ def process(task_id, args):
         print >>f, 'cd {dir}'.format(dir=shellquote(os.getcwd()))
         args = [shellquote(s) for s in args]
         print >>f, "{cmd} {params}".format(cmd=COMMAND, params=' '.join(args))
-    os.chmod(fname, 0700)
+    os.chmod(fname, 0o700)
     #
     start_daemon()
 
