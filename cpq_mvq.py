@@ -135,9 +135,10 @@ def process(task_id, args):
     """
     fname = "{qdir}/{task}".format(qdir=cfg.QDIR, task=task_id)
     with open(fname, "w") as f:
-        print >>f, 'cd {dir}'.format(dir=shellquote(os.getcwd()))
+        print('cd {dir}'.format(dir=shellquote(os.getcwd())), file=f)
         args = [shellquote(s) for s in args]
-        print >>f, "{cmd} {params}".format(cmd=COMMAND, params=' '.join(args))
+        print("{cmd} {params}".format(cmd=COMMAND, params=' '.join(args)),
+              file=f)
     os.chmod(fname, 0o700)
     #
     start_daemon()
