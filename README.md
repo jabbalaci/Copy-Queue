@@ -83,3 +83,15 @@ the copy/move progress, create the following alias:
 To check if the tasks are finished, just launch `Q`:
 
     $ Q
+
+
+Update (20170415)
+-----------------
+
+I found today a simple Unix batch system called
+task spooler ([AUR](https://aur.archlinux.org/packages/task-spooler/),
+[PPA](https://launchpad.net/ubuntu/+source/task-spooler)).
+Task spooler is more general than my approach since you can send
+any Unix command in its queue. Task spooler is a better solution
+than mine. It also provides more options, so I suggest using task spooler.
+Here is a short video about its usage: <https://www.youtube.com/watch?v=wv8D8wT20ZY>.
